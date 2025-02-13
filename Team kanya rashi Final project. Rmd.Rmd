@@ -1,0 +1,151 @@
+
+---
+Title: "Red wine quality"
+Author: "Team Kanya Rashi"
+date: "2022-12-10"
+output: html_document
+---
+Student 1
+Team Leader:-Sadanand goud karre
+
+
+```{r}
+library(readr)
+wine_data <- read_csv("~/BUSINESS ANALYTICS BNL 6100-11/Team Kanya Rashi/winequality-red.csv")
+head(wine_data)
+```
+
+```{r}
+hist(wine_data$quality, col="lightblue", main="Histogram of Wine Quality",
+     xlab="Quality", ylab="Frequency")
+
+```
+
+```{r}
+boxplot(wine_data$quality, col="lightblue", main="Boxplot of Wine Quality",
+        ylab="Quality")
+
+```
+```{r}
+# Scatter Plot with legend
+plot(wine_data$alcohol, wine_data$quality, col=wine_data$quality, pch=16,
+     main="Scatter Plot of Alcohol Content vs. Wine Quality",
+     xlab="Alcohol Content", ylab="Quality")
+
+# Create a legend based on unique values in wine_data$quality
+legend("topright", legend=unique(wine_data$quality), col="lightblue", pch=16)
+
+```
+student 2
+Compailer:- Sai sri lekha kolasani
+
+```{r}
+# Load the required libraries
+library(readr)
+library(ggplot2)
+data <- read_csv("~/BUSINESS ANALYTICS BNL 6100-11/Team Kanya Rashi/winequality-red.csv")
+head(data)
+```
+
+```{r}
+# Boxplot
+ggplot(data, aes(x = factor(quality), y = alcohol, fill = factor(quality))) +
+  geom_boxplot() +
+  labs(title = "Boxplot of Alcohol Content by Wine Quality",
+       x = "Wine Quality",
+       y = "Alcohol Content") +
+  theme_minimal()
+```
+
+```{r}
+# Scatter Plot
+ggplot(data, aes(x = alcohol, y = quality, color = factor(quality))) +
+  geom_point() +
+  labs(title = "Scatter Plot of Alcohol Content vs. Wine Quality",
+       x = "Alcohol Content",
+       y = "Wine Quality") +
+  theme_minimal()
+```
+
+```{r}
+# Bar Plot
+ggplot(data, aes(x = factor(quality))) +
+  geom_bar(fill = "skyblue") +
+  labs(title = "Bar Plot of Wine Quality Counts",
+       x = "Wine Quality",
+       y = "Count") +
+  theme_minimal()
+```
+
+
+Student 3
+Reviewer:- Rohith Srikar Sunkara
+```{r}
+# Load the required libraries
+library(readr)
+library(ggplot2)
+df<- read_csv("~/BUSINESS ANALYTICS BNL 6100-11/Team Kanya Rashi/winequality-red.csv")
+head(df)
+```
+
+
+```{r}
+# Boxplot using base R
+boxplot(alcohol ~ quality, data = df, col = rainbow(7),
+        main = "Boxplot of Alcohol Content by Wine Quality",
+        xlab = "Wine Quality", ylab = "Alcohol Content")
+
+```
+
+```{r}
+# Scatter plot using ggplot2
+library(ggplot2)
+
+ggplot(df, aes(x = alcohol, y = quality, color = factor(quality))) +
+  geom_point() +
+  labs(title = "Scatter Plot of Alcohol Content vs. Wine Quality (ggplot2)",
+       x = "Alcohol Content",
+       y = "Wine Quality") +
+  theme_minimal()
+```
+
+```{r}
+ggplot(df, aes(x = factor(quality))) +
+  geom_bar(fill = "red") +
+  labs(title = "Bar Plot of Wine Quality Counts (ggplot2)",
+       x = "Wine Quality",
+       y = "Count") +
+  theme_minimal()
+```
+
+
+Student 4
+Administator:- Poojitha Medasani
+```{r}
+library(lattice)
+
+# Boxplot
+bwplot(alcohol ~ factor(quality), data = df,
+       main = "Boxplot of Alcohol Content by Wine Quality",
+       xlab = "Wine Quality", ylab = "Alcohol Content",
+       col = rainbow(7))
+```
+
+
+```{r}
+# Scatter Plot
+xyplot(quality ~ alcohol, data = df, col = factor(df$quality),
+       main = "Scatter Plot of Alcohol Content vs. Wine Quality",
+       xlab = "Alcohol Content", ylab = "Wine Quality",
+       pch = 16)
+```
+
+
+```{r}
+# Bar Plot
+barchart(table(df$quality),
+         main = "Bar Plot of Wine Quality Counts",
+         xlab = "Wine Quality", ylab = "Count",
+         col = "skyblue")
+```
+
