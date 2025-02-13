@@ -23,5 +23,3 @@ git push origin main
 📂 **Dataset:** [winequality-red.csv](#)  
 📄 **Report:** [Final Report](#)  
 📊 **Storytelling:** [Project Storytelling Report](#)  
-
-🔗 **Explore the Code & Findings** in the repository! 🚀  
